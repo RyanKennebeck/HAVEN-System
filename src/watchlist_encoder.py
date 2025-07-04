@@ -9,7 +9,6 @@ representation using OpenCV and stores the name and encoding in
 """
 
 import json
-import os
 from pathlib import Path
 from typing import List, Dict
 
@@ -45,12 +44,14 @@ def encode_watchlist() -> List[Dict[str, object]]:
                 print(f"Unable to read {img_path}")
                 continue
             gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-            faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5)
+            faces = face_cascade.detectMultiScale(
+                gray, scaleFactor=1.1, minNeighbors=5
+            )
             if len(faces) == 0:
                 print(f"No faces found in {img_path}")
                 continue
             x, y, w, h = faces[0]
-            face_roi = gray[y : y + h, x : x + w]
+            face_roi = gray[y:y + h, x:x + w]
             face_roi = cv2.resize(face_roi, (100, 100))
             hist = cv2.calcHist([face_roi], [0], None, [256], [0, 256])
             hist = cv2.normalize(hist, hist).flatten()
