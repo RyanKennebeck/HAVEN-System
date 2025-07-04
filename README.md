@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/haven_titleboard.png" alt="HAVEN Logo" width="300">
+  <img src="assets/haven_gittitleboard.png" alt="HAVEN Logo" width="300">
 </p>
 
 # HAVEN System  
