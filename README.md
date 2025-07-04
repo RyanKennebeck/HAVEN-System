@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/haven_titleboard.png" alt="HAVEN Logo" width="300">
+</p>
+
 # HAVEN System  
 **Heads-up Analytics for Visual Environmental Notifications**
 
