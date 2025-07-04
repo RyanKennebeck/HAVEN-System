@@ -15,6 +15,10 @@ LOG_PATH = "logs/events.csv"
 INPUT_SOURCE = "input/test_footage.mp4"  # or 0 for webcam
 
 def ensure_log_file():
+    log_dir = os.path.dirname(LOG_PATH)
+    if log_dir and not os.path.exists(log_dir):
+        os.makedirs(log_dir, exist_ok=True)
+
     if not os.path.exists(LOG_PATH):
         with open(LOG_PATH, "w") as f:
             f.write("timestamp,event_type,identifier,confidence\n")
