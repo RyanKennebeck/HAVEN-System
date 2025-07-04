@@ -2,7 +2,7 @@
 
 import cv2
 
-# Draw a flashing alert box on the frame
+# Draw a static alert box on the frame
 
 def draw_alert(frame, text, color=(0, 0, 255), thickness=3):
     h, w = frame.shape[:2]
