@@ -9,22 +9,20 @@ from src.overlay_renderer import draw_overlays
 from src.face_detector import detect_faces
 from src.plate_reader import detect_plates
 from src.behavior_tracker import track_behavior
+from src.incident_reporter import generate_summary
 
 LOG_PATH = "logs/events.csv"
 INPUT_SOURCE = "input/test_footage.mp4"  # or 0 for webcam
-
 
 def ensure_log_file():
     if not os.path.exists(LOG_PATH):
         with open(LOG_PATH, "w") as f:
             f.write("timestamp,event_type,identifier,confidence\n")
 
-
 def log_event(event_type, identifier, confidence):
     with open(LOG_PATH, "a") as f:
         timestamp = datetime.datetime.now().isoformat()
         f.write(f"{timestamp},{event_type},{identifier},{confidence:.2f}\n")
-
 
 def main():
     ensure_log_file()
@@ -65,6 +63,8 @@ def main():
     cap.release()
     cv2.destroyAllWindows()
 
+    # Auto-generate incident summary
+    generate_summary()
 
 if __name__ == "__main__":
     main()
