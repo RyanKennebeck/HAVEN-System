@@ -11,8 +11,8 @@ HAVEN is an AI-powered surveillance prototype that simulates AR smart-glasses fu
 
 ## Features
 
-- Face Recognition  
-  Watchlist-based face matching using `face_recognition`.
+- Face Recognition
+  Watchlist-based face matching using OpenCV histograms.
 
 - License Plate OCR  
   YOLOv8 object detection with Tesseract OCR for text extraction.
@@ -35,7 +35,7 @@ HAVEN is an AI-powered surveillance prototype that simulates AR smart-glasses fu
 
 | Component         | Library / Tool             |
 |------------------|----------------------------|
-| Face Detection    | face_recognition           |
+| Face Detection    | OpenCV Haar Cascade        |
 | Plate Detection   | YOLOv8 (Ultralytics)       |
 | OCR               | Tesseract                  |
 | HUD Rendering     | OpenCV                     |
