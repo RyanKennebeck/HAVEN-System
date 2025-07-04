@@ -3,13 +3,12 @@
 import cv2
 import datetime
 import os
-import json
-
 from src.overlay_renderer import draw_overlays
 from src.face_detector import detect_faces
 from src.plate_reader import detect_plates
 from src.behavior_tracker import track_behavior
 from src.incident_reporter import generate_summary
+from src.alert_manager import draw_alert
 
 LOG_PATH = "logs/events.csv"
 INPUT_SOURCE = "input/test_footage.mp4"  # or 0 for webcam
@@ -42,6 +41,8 @@ def main():
         for face in faces:
             draw_overlays(frame, face, label="Face", color=(0, 255, 0))
             log_event("face", face["id"], face["confidence"])
+            if face["id"] != "Unknown":
+                draw_alert(frame, f"Watchlist Match: {face['id']}")
 
         # License plate detection
         plates = detect_plates(frame)
@@ -54,6 +55,8 @@ def main():
         for behavior in behaviors:
             draw_overlays(frame, behavior, label=behavior["type"], color=(0, 0, 255))
             log_event("behavior", behavior["type"], behavior["score"])
+            if behavior["type"].lower() == "loitering" and behavior["score"] > 0.8:
+                draw_alert(frame, "Suspicious Behavior Detected")
 
         # Show HUD preview
         cv2.imshow("HAVEN Feed", frame)
