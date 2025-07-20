@@ -28,7 +28,7 @@ def generate_summary():
         summary.setdefault(key, []).append(e)
 
     with open(OUTPUT_PATH, "w") as f:
-        f.write(f"INCIDENT REPORT — {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write(f"INCIDENT REPORT - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
         f.write("-" * 40 + "\n")
 
         for category, entries in summary.items():
