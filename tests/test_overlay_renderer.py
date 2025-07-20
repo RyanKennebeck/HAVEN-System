@@ -1,9 +1,6 @@
 import numpy as np
 import cv2
-import os
-import sys
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
-from overlay_renderer import draw_overlays
+from src.overlay_renderer import draw_overlays
 
 def test_plate_text_rendered(monkeypatch):
     frame = np.zeros((20, 20, 3), dtype=np.uint8)
