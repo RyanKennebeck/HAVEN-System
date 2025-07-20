@@ -82,7 +82,8 @@ HAVEN-System/
 ```bash
 # 1. Set up and activate the virtual environment
 python -m venv haven-env
-.\haven-env\Scripts\Activate.ps1
+.\haven-env\Scripts\Activate.ps1  # Windows
+source haven-env/bin/activate       # Unix/macOS
 
 # 2. Install dependencies
 pip install -r requirements.txt
