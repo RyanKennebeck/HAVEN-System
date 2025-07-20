@@ -52,7 +52,7 @@ HAVEN is an AI-powered surveillance prototype that simulates AR smart-glasses fu
 
 HAVEN-System/
 ├── input/               # Test footage (video or webcam)
-├── models/              # YOLOv8 weights, face models
+├── models/              # YOLOv8 weights (yolov8_plate.pt) and face models
 ├── data/
 │   ├── watchlist.json   # Encoded known faces
 │   └── watchlist\_images/ # Raw images for encoding
@@ -87,7 +87,10 @@ python -m venv haven-env
 # 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Run the system
+# 3. Download YOLOv8 plate weights (or train your own)
+#    Save the file as models/yolov8_plate.pt
+
+# 4. Run the system
 python src/main.py
 
 # Optional: Run the Streamlit dashboard
