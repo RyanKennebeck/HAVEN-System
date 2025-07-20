@@ -73,7 +73,7 @@ HAVEN-System/
 ├── assets/              # Optional UI icons
 └── README.md
 
-````
+```
 
 ---
 
@@ -92,15 +92,13 @@ python src/main.py
 
 # Optional: Run the Streamlit dashboard
 streamlit run ui/streamlit_app.py
-````
+```
 
 ---
 
 ## Disclaimer
 
 This project is a research prototype. It is not intended for real-world deployment in surveillance or law enforcement contexts without legal oversight and proper authorization.
-
-```
 
 ---
 
