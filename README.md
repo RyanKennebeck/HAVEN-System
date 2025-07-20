@@ -108,3 +108,7 @@ This project is a research prototype. It is not intended for real-world deployme
 
 ---
 
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
